@@ -2,10 +2,15 @@ module SeatSaver exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (class)
+import Html.App as Html
 
-main : Html String
+main : Program Never
 main =
-  view init
+  Html.beginnerProgram
+    { model = init
+    , update = update
+    , view = view
+    }
 
 
 -- Model
