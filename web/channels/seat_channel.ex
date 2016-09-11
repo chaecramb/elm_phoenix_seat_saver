@@ -3,10 +3,17 @@ defmodule SeatSaver.SeatChannel do
 
   def join("seats:planner", payload, socket) do
     if authorized?(payload) do
+      send self(), :after_join
       {:ok, socket}
     else
       {:error, %{reason: "unauthorized"}}
     end
+  end
+
+  def handle_info(:after_join, socket) do
+    seats = (from s in SeatSaver.Seat, order_by: [asc: s.seat_no]) |> Repo.all
+    push socket, "set_seats", %{seats: seats}
+    {:noreply, socket}
   end
 
   # Channels can be used in a request/response fashion
