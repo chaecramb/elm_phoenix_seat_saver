@@ -3,4 +3,9 @@ module SeatSaver exposing (..)
 import Html
 
 main =
-  Html.text "Hello from Elm"
+  view
+
+-- View
+
+view =
+  Html.text "Woohoo, I'm in a View"
