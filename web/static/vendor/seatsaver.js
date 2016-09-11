@@ -7780,6 +7780,18 @@ var _user$project$SeatSaver$view = function (model) {
 			]),
 		A2(_elm_lang$core$List$map, _user$project$SeatSaver$seatItem, model));
 };
+var _user$project$SeatSaver$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		var updateSeat = function (seatFromModel) {
+			return _elm_lang$core$Native_Utils.eq(seatFromModel.seatNo, _p0._0.seatNo) ? _elm_lang$core$Native_Utils.update(
+				seatFromModel,
+				{
+					occupied: _elm_lang$core$Basics$not(seatFromModel.occupied)
+				}) : seatFromModel;
+		};
+		return A2(_elm_lang$core$List$map, updateSeat, model);
+	});
 var _user$project$SeatSaver$init = _elm_lang$core$Native_List.fromArray(
 	[
 		{seatNo: 1, occupied: false},
@@ -7802,6 +7814,9 @@ var _user$project$SeatSaver$Seat = F2(
 	function (a, b) {
 		return {seatNo: a, occupied: b};
 	});
+var _user$project$SeatSaver$Toggle = function (a) {
+	return {ctor: 'Toggle', _0: a};
+};
 
 var Elm = {};
 Elm['SeatSaver'] = Elm['SeatSaver'] || {};
