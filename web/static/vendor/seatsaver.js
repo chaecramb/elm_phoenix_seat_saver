@@ -7907,23 +7907,30 @@ var _user$project$SeatSaver$update = F2(
 					occupied: _elm_lang$core$Basics$not(seatFromModel.occupied)
 				}) : seatFromModel;
 		};
-		return A2(_elm_lang$core$List$map, updateSeat, model);
+		return {
+			ctor: '_Tuple2',
+			_0: A2(_elm_lang$core$List$map, updateSeat, model),
+			_1: _elm_lang$core$Platform_Cmd$none
+		};
 	});
-var _user$project$SeatSaver$init = _elm_lang$core$Native_List.fromArray(
-	[
-		{seatNo: 1, occupied: false},
-		{seatNo: 2, occupied: false},
-		{seatNo: 3, occupied: false},
-		{seatNo: 4, occupied: false},
-		{seatNo: 5, occupied: false},
-		{seatNo: 6, occupied: false},
-		{seatNo: 7, occupied: false},
-		{seatNo: 8, occupied: false},
-		{seatNo: 9, occupied: false},
-		{seatNo: 10, occupied: false},
-		{seatNo: 11, occupied: false},
-		{seatNo: 12, occupied: false}
-	]);
+var _user$project$SeatSaver$init = function () {
+	var seats = _elm_lang$core$Native_List.fromArray(
+		[
+			{seatNo: 1, occupied: false},
+			{seatNo: 2, occupied: false},
+			{seatNo: 3, occupied: false},
+			{seatNo: 4, occupied: false},
+			{seatNo: 5, occupied: false},
+			{seatNo: 6, occupied: false},
+			{seatNo: 7, occupied: false},
+			{seatNo: 8, occupied: false},
+			{seatNo: 9, occupied: false},
+			{seatNo: 10, occupied: false},
+			{seatNo: 11, occupied: false},
+			{seatNo: 12, occupied: false}
+		]);
+	return {ctor: '_Tuple2', _0: seats, _1: _elm_lang$core$Platform_Cmd$none};
+}();
 var _user$project$SeatSaver$Seat = F2(
 	function (a, b) {
 		return {seatNo: a, occupied: b};
@@ -7958,8 +7965,15 @@ var _user$project$SeatSaver$view = function (model) {
 		A2(_elm_lang$core$List$map, _user$project$SeatSaver$seatItem, model));
 };
 var _user$project$SeatSaver$main = {
-	main: _elm_lang$html$Html_App$beginnerProgram(
-		{model: _user$project$SeatSaver$init, update: _user$project$SeatSaver$update, view: _user$project$SeatSaver$view})
+	main: _elm_lang$html$Html_App$program(
+		{
+			init: _user$project$SeatSaver$init,
+			update: _user$project$SeatSaver$update,
+			view: _user$project$SeatSaver$view,
+			subscriptions: function (_p1) {
+				return _elm_lang$core$Platform_Sub$none;
+			}
+		})
 };
 
 var Elm = {};
